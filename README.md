@@ -1,6 +1,6 @@
 # Deep Learning
 
-A repo with implementations of various Deep learning models (along with explanations).
+Implementations of various Deep learning models (along with explanations).
 
 ## What's completed?
 
