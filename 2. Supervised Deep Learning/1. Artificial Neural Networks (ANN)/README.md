@@ -26,7 +26,7 @@ Note: the data set being used here doesn't need to be cleaned as it doesn't have
 
 ## Data Preprocessing
 
-For more information on encoding (and data preprocessing in general), see *data_preprocessing_and_classification_template.py*.
+For more information on encoding (and data preprocessing in general), see [data_preprocessing_and_classification_template.py](https://github.com/shreyasparbat/Deep-learning/blob/master/2.%20Supervised%20Deep%20Learning/1.%20Artificial%20Neural%20Networks%20(ANN)/data_preprocessing_and_classification.py).
 
 ```python
 #%%
