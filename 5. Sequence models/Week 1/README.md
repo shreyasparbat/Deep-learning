@@ -9,7 +9,7 @@
 8. Vanishing gradients with RNNs
 9. Gated Recurrent Unit (GRU)
 10. Long Short term Memory (LSTM)
-11. Bidirectional RNN
+11. Bidirectional RNN (BRNN)
 12. Deep RNNs
 ## 1. Examples of sequential data
 ![alt text](imgs/0.png)
@@ -52,7 +52,7 @@ Represents the t'th element (word) of the input sequence
 - We convert the a<t> equation from: ![012](imgs/013.png) to ![](imgs/014.png), where Wa is given by  ![](imgs/015.png) and [a<t-1>, x<t>] is given by ![](imgs/016.png).
 - Wa * [a<t-1>, x<t>] just gives back the original equation: ![](imgs/017.png).
 - Advantage of doing this is merely notation simplification.
-- Similarly, the y-hat notation is simplified as: 
+- The y-hat notation is simplified as: 
 
 ![](imgs/018.png).
 
@@ -157,7 +157,19 @@ Represents the t'th element (word) of the input sequence
 
 - Modification: peephole connection: ![](imgs\046.png)
 
-## 11. Bidirectional RNN
+## 11. Bidirectional RNN (BRNN)
 
-- 
+- Here, we have backward connections in addition to the forward connections, thus forming an acyclic graph: ![](imgs/Screenshot 2019-06-25 at 3.47.37 PM.png)
+- Sequences: -
+  - Forward sequence: a1-forward to a4-forward
+  - Backward sequence: a4-backward to a1-backward
+- Output calculation: ![](imgs/Screenshot 2019-06-25 at 3.49.39 PM.png). Thus, an output is calculated using information from the past as well information from the future
+- A lot of textbook NLP problems can be solved with BRNN w/t LSTM
+- **Disadvantage**: You need the entire sequence before producing output. This would be a problem for implementations like speech translation (the person would have finish speaking before translations can be made)
 
+## 12. Deep RNNs
+
+- Extra notation ([l] will denote the layer level): ![](imgs/Screenshot 2019-06-25 at 4.00.17 PM.png)
+- Deep RNN eg: ![](imgs/Screenshot 2019-06-25 at 4.01.59 PM.png)
+- In this eg, a[2]<3> would be calculated as: ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5. Sequence models/Week 1/imgs/Screenshot 2019-06-25 at 4.41.25 PM.png)
+- Having 3 RNN layers is already quite deep since each RNN layer has so many temporal dimensions. A common architecture is having n-layers of RNNs, then stacking them up with normal neural networks
