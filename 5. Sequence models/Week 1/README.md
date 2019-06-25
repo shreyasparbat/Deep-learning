@@ -116,9 +116,19 @@ Represents the t'th element (word) of the input sequence
 
 ## 9. Gated Recurrent Unit (GRU)
 
-- 
+#### RNN
 
-----
+- A basic RNN unit representation: ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5.%20Sequence%20models/Week%201/imgs/Screenshot%202019-06-24%20at%2011.31.42%20AM.png)
+
+#### Simplified GRU
+
+- The GRU has another variable called "c", which denotes the cell memory. This variable is infact to the activation value of the unit at time t but is denoted with a different variable here (in LSTM these values will differ): ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5.%20Sequence%20models/Week%201/imgs/Screenshot%202019-06-24%20at%2011.42.32%20AM.png)
+- At every time step, we compute ct-tilde, which will be a candidate for replacing the current value of ct: ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5.%20Sequence%20models/Week%201/imgs/Screenshot%202019-06-24%20at%2011.44.04%20AM.png)
+- Then we have a gate (represented here by Captial gamma subscript u, where u stands for update gate) which is a value between 0 and 1 (the small sigma function denotes the sigmoid funtion): ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5.%20Sequence%20models/Week%201/imgs/Screenshot%202019-06-24%20at%2011.48.16%20AM.png)
+- This gate is used to calculate the new ct as follows: ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5.%20Sequence%20models/Week%201/imgs/Screenshot%202019-06-24%20at%2011.51.27%20AM.png)
+- Since the gate is calculated using a sigmoid function, it will usually be very close to 0 or 1. If gate almost = 0, then ct almost = ct-1 and hence the memory cell value is retained (almost). However, if gate almost = 1, then ct almost = ct-tidle, and hence the ct value is changed
+- Simplified GRU unit representation (the purple box represents the ct update operation defined by the equation just above): ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5.%20Sequence%20models/Week%201/imgs/Screenshot%202019-06-24%20at%2012.10.39%20PM.png)
+- Since the gate value is usually very close to 0, the ct value is usually retained across many timesteps. Moreover GRUs don't suffer from the vanishing gradient problem. Thus, they can learn very long range dependencies
 
 - ct will be a vector of the same dimension as the activation value (and thus ct-tilde and gamma as well) => gamma is a n-dimensional vector of values between 0-1 => gamma updates ct element wise (some elements might get updated and some might not, thus ct is a mix ct-tilde and ct-1, and not absolutely one of the two). Since there are multiple elements, each element (or combination of elements) can be used to remember different information (eg: is the word in memory singular or plural, etc.)
 
