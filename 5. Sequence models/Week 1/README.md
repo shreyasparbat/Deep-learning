@@ -173,3 +173,7 @@ Represents the t'th element (word) of the input sequence
 - Deep RNN eg: ![](imgs/Screenshot 2019-06-25 at 4.01.59 PM.png)
 - In this eg, a[2]<3> would be calculated as: ![](/Users/ftt.shreyas.parbat/Desktop/Repos/deep-learning/5. Sequence models/Week 1/imgs/Screenshot 2019-06-25 at 4.41.25 PM.png)
 - Having 3 RNN layers is already quite deep since each RNN layer has so many temporal dimensions. A common architecture is having n-layers of RNNs, then stacking them up with normal neural networks
+
+## Bonus: Quiz IMP Questions
+
+- !
